@@ -43,6 +43,8 @@ cd entregable
 py manage.py runserver
 ```
 
+# Comandos útiles para Git
+
 ## Git status
 
 El comando de git status nos da toda la información necesaria sobre la rama actual:
