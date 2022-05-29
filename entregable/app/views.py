@@ -1,3 +1,4 @@
+from urllib import request
 from django.shortcuts import render
 
 from app.models import Conductor
@@ -5,17 +6,17 @@ from app.models import Conductor
 # Create your views here.
 
 
-def index(ctx):
-    return render(ctx,'app/home.html')
+def home(request):
+    return render(request,'app/home.html')
 
 
-def conductor(ctx):
+def conductor(request):
     conductor = Conductor.objects.all()
 
     context_dict = {'conductor': conductor}
 
     return render(
-        request=ctx,
+        request=request,
         context=context_dict,
         template_name="app/drivers.html",
     )
