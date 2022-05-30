@@ -12,45 +12,33 @@
     .tg .tg-0lax{text-align:left;vertical-align:top}
     @media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}
     </style>
-    <h1 class="fst-italic lh-1 mb-4">Conductores</h1>
-        <p class="mb-5">Lista de conductores</p>
+    <h1 class="fst-italic lh-1 mb-4">Autos</h1>
+        <p class="mb-5">Lista de autos</p>
         <div class="tg-wrap"><table class="tg">
             <tbody>
-            {% for conductor in conductores %}
+            {% for auto in autos %}
             <tr class="tr-1">
                 <td class="tg-izq">
-                    <div class="fw-bolder">Nombre:</div>
+                    <div class="fw-bolder">Marca:</div>
                 </td>
                 <td class="tg-der">
-                    <div class="fw-bolder">{{ conductor.full_name }}</div>
+                    <div class="fw-bolder">{{ auto.brand }}</div>
                 </td>
             </tr>
             <tr class="tr-1">
                 <td class="tg-izq">
-                    <div class="fw-bolder">Día de nacimiento:</div>
+                    <div class="fw-bolder">Modelo:</div>
                 </td>
                 <td class="tg-der">
-                    <div class="fw-bolder">{{ conductor.day_of_birth }}</div>
+                    <div class="fw-bolder">{{ auto.model }}</div>
                 </td>
             </tr>
             <tr class="tr-1">
                 <td class="tg-izq">
-                    <div class="fw-bolder">Email:</div>
+                    <div class="fw-bolder">Año:</div>
                 </td>
                 <td class="tg-der">
-                    <div class="fw-bolder"><a href="mailto:{{ conductor.email }}}">{{ conductor.email }}}</a></div>
-                </td>
-            </tr>
-            <tr class="tr-1">
-                <td class="tg-izq">
-                    <div class="fw-bolder">Tiene licencia?:</div>
-                </td>
-                <td class="tg-der">
-                    {% if conductor.has_license %}
-                    <div class="fw-bolder">Si</div>
-                    {% else %}
-                    <div class="fw-bolder">No</div>
-                    {% endif %}         
+                    <div class="fw-bolder">{{ auto.year }}</div>
                 </td>
             </tr>
             <tr class="tr-1"><td class="tg-0lax">&nbsp;</td><td class="tg-0lax">&nbsp;</td></tr>

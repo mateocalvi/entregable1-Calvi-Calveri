@@ -4,5 +4,6 @@ from app import views
 
 urlpatterns = [
     path('', views.home),
-    path('drivers', views.conductor, name='Drivers'),
+    path('driver', views.conductores, name='Drivers'),
+    path('car', views.autos, name='Cars'),
 ]
