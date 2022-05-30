@@ -29,6 +29,7 @@ class Conductor(models.Model):
 class Licencia(models.Model):
     number = models.CharField(max_length=40)
     year = models.IntegerField()
+    owner = models.CharField(max_length=40)
     
     def __str__(self) -> str:
         return f'License number: {self.number} | Year: {self.year}'

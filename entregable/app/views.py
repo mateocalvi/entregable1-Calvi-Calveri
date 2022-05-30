@@ -32,6 +32,17 @@ def autos(request):
         template_name="app/cars.html",
     )
 
+def licencias(request):
+    licencias = Licencia.objects.all()
+
+    context_dict = {'licencias': licencias}
+
+    return render(
+        request=request,
+        context=context_dict,
+        template_name="app/licenses.html",
+    )
+
 
 
 
