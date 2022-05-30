@@ -1,4 +1,6 @@
-# Cómo usar git
+# Readme
+
+## Cómo usar git
 
 - Clonar el proyecto y cambiar de rama
 
@@ -43,9 +45,9 @@ cd entregable
 py manage.py runserver
 ```
 
-# Comandos útiles para Git
+## Comandos útiles para Git
 
-## Git status
+### Git status
 
 El comando de git status nos da toda la información necesaria sobre la rama actual:
 
@@ -58,7 +60,7 @@ El comando de git status nos da toda la información necesaria sobre la rama act
 git status
 ```
 
-## Git commit
+### Git commit
 
 Git commit establece un punto de control al cual puedes volver más tarde si es necesario.
 Resulta muy aconsejable escribir un mensaje corto para explicar qué hemos desarrollado o modificado en el código fuente.
@@ -67,7 +69,7 @@ Resulta muy aconsejable escribir un mensaje corto para explicar qué hemos desar
 git commit -m "mensaje de confirmación"
 ```
 
-## Git push
+### Git push
 
 Después de haber confirmado tus cambios, el siguiente paso que quieres dar es enviar tus cambios al servidor remoto. Git push envía tus commits al repositorio remoto.
 
