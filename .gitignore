@@ -3,3 +3,5 @@
 **/__pycache__/
 *.pyc
 *.pyo
+urls.cpython-310.pyc
+views.cpython-310.pyc
