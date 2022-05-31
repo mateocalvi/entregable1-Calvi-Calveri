@@ -23,7 +23,7 @@ class Conductor(models.Model):
     
     def __str__(self) -> str:
         has_license = 'Yes' if self.has_license else 'No'
-        return f'Name: {self.full_name} | Day of birth: {self.day_of_birth} | Email: {self.email} | License?: {has_license} '
+        return f'Name: {self.full_name} | Day of birth: {self.day_of_birth} | Email: {self.email} | License?: {has_license}'
 
 
 class Licencia(models.Model):

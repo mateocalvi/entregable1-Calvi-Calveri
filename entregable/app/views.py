@@ -1,5 +1,6 @@
-from urllib import request
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.db.models import Q
 
 from app.models import Conductor, Auto, Licencia
 from app.forms import ConductorForm, LicenciaForm, AutoForm
@@ -71,7 +72,7 @@ def conductor_form(request):
     return render(
         request=request,
         context=context_dict,
-        template_name='app/driver_form.html'
+        template_name='app/forms/driver_form.html'
     )
 
 
@@ -101,7 +102,7 @@ def licencia_form(request):
     return render(
         request=request,
         context=context_dict,
-        template_name='app/license_form.html'
+        template_name='app/forms/license_form.html'
     )
 
 
@@ -116,9 +117,7 @@ def auto_form(request):
             auto.save()
 
             auto = Auto.objects.all()
-            context_dict = {
-                'auto': auto
-            }
+            context_dict = {'auto': auto}
             return render(
                 request=request,
                 context=context_dict,
@@ -130,8 +129,73 @@ def auto_form(request):
     return render(
         request=request,
         context=context_dict,
-        template_name='app/car_form.html'
+        template_name='app/forms/car_form.html'
     )
 
 
+def search(request):
+    if request.GET['car_search']:
+        search_param = request.GET['car_search']
+        query = Q(brand__contains=search_param)
+        query.add(Q(model__contains=search_param), Q.OR)
+        query.add(Q(year__contains=search_param), Q.OR)
+        autos = Auto.objects.filter(query)
+        context_dict = {'autos': autos}
+        
+    elif request.GET['driver_search']:
+        search_param = request.GET['driver_search']
+        query = Q(full_name__contains=search_param)
+        query.add(Q(day_of_birth__contains=search_param), Q.OR)
+        query.add(Q(email__contains=search_param), Q.OR)
+        query.add(Q(has_license__contains=search_param), Q.OR)
+        conductores = Conductor.objects.filter(query)
+        context_dict = {'conductores': conductores}
+    
+    elif request.GET['license_search']:
+        search_param = request.GET['license_search']
+        query = Q(number__contains=search_param)
+        query.add(Q(year__contains=search_param), Q.OR)
+        query.add(Q(owner__contains=search_param), Q.OR)
+        licencias = Licencia.objects.filter(query)
+        context_dict = {'licencias': licencias}
 
+    # elif request.GET['all_search']:
+    #     search_param = request.GET['license_search']
+    #     query = Q(number__contains=search_param)
+    #     query.add(Q(year__contains=search_param), Q.OR)
+    #     query.add(Q(owner__contains=search_param), Q.OR)
+    #     licencias = Licencia.objects.filter(query)
+        
+    #     search_param = request.GET['driver_search']
+    #     query = Q(full_name__contains=search_param)
+    #     query.add(Q(day_of_birth__contains=search_param), Q.OR)
+    #     query.add(Q(email__contains=search_param), Q.OR)
+    #     query.add(Q(has_license__contains=search_param), Q.OR)
+    #     conductores = Conductor.objects.filter(query)
+        
+    #     search_param = request.GET['car_search']
+    #     query = Q(brand__contains=search_param)
+    #     query.add(Q(model__contains=search_param), Q.OR)
+    #     query.add(Q(year__contains=search_param), Q.OR)
+    #     autos = Auto.objects.filter(query)
+        
+    #     context_dict = {
+    #         'all': licencias or conductores or autos
+    #         }
+        
+    else:
+        no = HttpResponse()
+        context_dict = {'no':no}
+        
+        no2 = HttpResponse()
+        context_dict = {'no2':no2}
+        
+        return render(request=request,
+                      context=context_dict,
+                      template_name="app/home.html")   
+        
+    return render(
+        request=request,
+        context=context_dict,
+        template_name="app/home.html",
+    )

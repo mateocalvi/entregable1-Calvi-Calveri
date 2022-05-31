@@ -10,4 +10,5 @@ urlpatterns = [
     path('driver_form', views.conductor_form, name='DriverForm'),
     path('license_form', views.licencia_form, name='LicenseForm'),
     path('car_form', views.auto_form, name='CarForm'),
+    path('search', views.search, name='Search'),
 ]

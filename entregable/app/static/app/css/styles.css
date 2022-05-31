@@ -11365,7 +11365,7 @@ video.bg-video {
 }
 .masthead .masthead-content .input-group-newsletter input {
   height: auto;
-  width: 100%;
+  width: auto;
   font-size: 1rem;
   padding: 1rem;
 }
