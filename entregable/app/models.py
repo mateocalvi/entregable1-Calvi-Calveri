@@ -32,4 +32,4 @@ class Licencia(models.Model):
     owner = models.CharField(max_length=40)
     
     def __str__(self) -> str:
-        return f'License number: {self.number} | Year: {self.year}'
+        return f'License number: {self.number} | Year: {self.year} | Owner: {self.owner}'

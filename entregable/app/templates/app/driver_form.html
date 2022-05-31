@@ -1,0 +1,22 @@
+{% extends "app/index.html" %}
+{% load static %}
+{% block viewContent %}
+
+<h2 class="fst-italic lh-1 mb-4">
+    Formulario para insersión<br>
+    de un nuevo condcutor
+</h2> 
+<hr></hr>
+<!--{% if course_form.errors %}
+    <p style="color: red">Por favor revisar los datos, están mal</p>
+{% endif %}-->
+
+<form action="" method="POST">{% csrf_token %}
+        <table>
+            {{ conductor_form.as_table }}
+        </table>
+        <hr></hr>
+        <input type="submit" class="btn btn-primary" value="Crear conductor" />
+    </form>
+
+{% endblock %}

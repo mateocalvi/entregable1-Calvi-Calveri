@@ -4,7 +4,10 @@ from app import views
 
 urlpatterns = [
     path('', views.home, name='Home'),
-    path('driver', views.conductores, name='Drivers'),
-    path('car', views.autos, name='Cars'),
-    path('license', views.licencias, name='Licenses'),
+    path('drivers', views.conductores, name='Drivers'),
+    path('cars', views.autos, name='Cars'),
+    path('licenses', views.licencias, name='Licenses'),
+    path('driver_form', views.conductor_form, name='DriverForm'),
+    path('license_form', views.licencia_form, name='LicenseForm'),
+    path('car_form', views.auto_form, name='CarForm'),
 ]
