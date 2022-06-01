@@ -19,4 +19,4 @@ En la carpeta ``\forms``, se encuentran los archivos HTML de los formularios.
 
 ## Inicialización del proyecto
 
-> Véase [``how_to_use.md``](https://github.com/CalveriMatias/entregable1-Calvi-Calveri/blob/development/how_to_use.md)
+> Véase [``how_to_use.md``](https://github.com/mateocalvi/entregable1-Calvi-Calveri/blob/development/how_to_use.md)
