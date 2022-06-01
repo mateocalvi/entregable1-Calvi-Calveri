@@ -4,7 +4,7 @@
 
 La idea de la página es imitar la interfaz de empleado de una empresa de renta de autos. Donde se pueden administrar usuarios, licencias de estos e inventario de vehículos.
 
-Utilizamos un [template](https://startbootstrap.com/theme/coming-soon) gratuito de startboostrap para lograr una mejor calidad de UI sin perder tiempo en el diseño de este, para poder concentrarnos en desarrollar en `Django`.
+Utilizamos un [template](https://startbootstrap.com/theme/coming-soon) gratuito de startboostrap para lograr una mejor calidad de UI sin perder tiempo en el diseño de este, para poder concentrarnos en desarrollar en *Django*.
 
 ## Organización del proyecto
 
