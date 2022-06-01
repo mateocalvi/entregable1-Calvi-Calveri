@@ -5,7 +5,7 @@
 1. Clonar el proyecto y cambiar de rama.
 
     ```powershell
-    git clone https://github.com/mateocalvi/    entregable1-Calvi-Calveri-Schell
+    git clone https://github.com/CalveriMatias/entregable1-Calvi-Calveri.git
 
     git checkout development
     ```
