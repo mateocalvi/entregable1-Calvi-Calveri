@@ -41,9 +41,9 @@
         {% for conductor in conductores %}
             <li>
                 {% if conductor.has_license %}
-                Name: {{conductor.full_name}} <br> Day of birth: {{conductor.day_of_birth}} <br> Email: {{conductor.email}} <br> License?: Yes
+                Nombre: {{conductor.full_name}} <br> Día de nacimiento: {{conductor.day_of_birth}} <br> Email: {{conductor.email}} <br> Licencia?: Si
                 {% else %}
-                Name: {{conductor.full_name}} <br> Day of birth: {{conductor.day_of_birth}} <br> Email: {{conductor.email}} <br> License?: No
+                Nombre: {{conductor.full_name}} <br> Día de nacimiento: {{conductor.day_of_birth}} <br> Email: {{conductor.email}} <br> Licencia?: No
                 {% endif %}
             </li>
         {% endfor %}

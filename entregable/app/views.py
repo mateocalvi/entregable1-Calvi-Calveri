@@ -44,7 +44,8 @@ def licencias(request):
         context=context_dict,
         template_name="app/licenses.html",
     )
-
+    
+    
 def conductor_form(request):
     if request.method == 'POST':
         conductor_form = ConductorForm(request.POST or None)
@@ -74,6 +75,33 @@ def conductor_form(request):
         context=context_dict,
         template_name='app/forms/driver_form.html'
     )
+    
+    
+def auto_form(request):
+    if request.method == 'POST':
+        auto_form = AutoForm(request.POST or None)
+        if auto_form.is_valid():
+            data = auto_form.cleaned_data
+            autos = Auto(brand=data['brand'],
+                        model=data['model'],
+                        year=data["year"])
+            autos.save()
+
+            autos = Auto.objects.all()
+            context_dict = {'autos': autos}
+            return render(
+                request=request,
+                context=context_dict,
+                template_name="app/cars.html"
+            )
+
+    auto_form = AutoForm(request.POST or None)
+    context_dict = {'auto_form': auto_form}
+    return render(
+        request=request,
+        context=context_dict,
+        template_name='app/forms/car_form.html'
+    )
 
 
 def licencia_form(request):
@@ -83,7 +111,8 @@ def licencia_form(request):
         if license_form.is_valid():
             data = license_form.cleaned_data
             licencias = Licencia(number=data['number'], 
-                                 year=data['year'])
+                                 year=data['year'],
+                                 owner=data['owner'])
             licencias.save()
             
             licencias = Licencia.objects.all()
@@ -103,33 +132,6 @@ def licencia_form(request):
         request=request,
         context=context_dict,
         template_name='app/forms/license_form.html'
-    )
-
-
-def auto_form(request):
-    if request.method == 'POST':
-        auto_form = AutoForm(request.POST or None)
-        if auto_form.is_valid():
-            data = auto_form.cleaned_data
-            auto = Auto(brand=data['brand'],
-                        model=data['model'],
-                        year=data["year"])
-            auto.save()
-
-            auto = Auto.objects.all()
-            context_dict = {'auto': auto}
-            return render(
-                request=request,
-                context=context_dict,
-                template_name="app/cars.html"
-            )
-
-    auto_form = AutoForm(request.POST or None)
-    context_dict = {'auto_form': auto_form}
-    return render(
-        request=request,
-        context=context_dict,
-        template_name='app/forms/car_form.html'
     )
 
 
